@@ -1,6 +1,11 @@
 {
-  
-  "routes": [
-     { "src": "/api/(.*)", "dest": "/api" }
-  ]
- }
+ "builds": [
+     {
+       "src": "package.json",
+       "use": "@vercel/node"
+     }
+ ],
+ "routes": [
+    { "src": "/api/(.*)", "dest": "/api" }
+ ]
+}
