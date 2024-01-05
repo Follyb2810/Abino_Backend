@@ -8,7 +8,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const { protectedRoutes, RefreshUser, UpdateUser } = require('./controller/authController');
 const folly = require('crypto').randomBytes(64).toString('hex')
-var bodyParser = require('body-parser')
+
 // console.log(folly)
 
 connectdb()
@@ -20,8 +20,6 @@ app.use(
   })
 );
 app.use(cookieParser())
-// app.use(express.urlencoded({ extended: true }));
-// app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -45,6 +43,10 @@ app.use('/api/v1/refresh',RefreshUser)
 app.use('/api/v1/blog',BlogRoutes)
 app.listen(PORT, () => console.log('Folly is listening on port ' + PORT));
 
+
+// var bodyParser = require('body-parser')
+// app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 
 // const whitelist = [
 //   '*'
